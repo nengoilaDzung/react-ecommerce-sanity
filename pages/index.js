@@ -3,6 +3,7 @@ import { client } from "../lib/client";
 import { Product, FooterBanner, HeroBanner, Gears } from "../components/index";
 
 const Home = ({ products, bannerData, gears }) => {
+  console.log(products);
   return (
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
@@ -11,18 +12,26 @@ const Home = ({ products, bannerData, gears }) => {
         <p>Featured Apple's Products</p>
       </div>
       <div className="products-container">
-        {products?.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {products
+          ?.filter((product) => {
+            return product.name.includes("Apple");
+          })
+          .map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
       </div>
       <div className="products-heading">
         <h2>PC Gears</h2>
         <p>Featured Logitech's Products</p>
       </div>
       <div className="products-container">
-        {gears?.map((gears) => (
-          <Gears key={gears._id} gears={gears} />
-        ))}
+        {products
+          ?.filter((product) => {
+            return product.name.includes("Logitech");
+          })
+          .map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
       </div>
       <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </div>
