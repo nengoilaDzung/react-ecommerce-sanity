@@ -21,7 +21,7 @@ const Success = () => {
           <BsBagCheckFill />
         </p>
         <h2>Thanks for your order!</h2>
-        <p className="email-msg">Recept is sent to your mailbox.</p>
+        <p className="email-msg">Receipt is sent to your mailbox.</p>
         <p className="description">
           If you are having problems, please contact us through
           <a className="email" href="mailto:20020284@vnu.edu.vn">
